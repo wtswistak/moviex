@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+ol,
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  &:link,
+  &:active,
+  &:visited,
+  &:hover {
+    color: inherit;
+  }
+}
+input {
+  border: none;
+  background: none;
+  outline: none;
+}
