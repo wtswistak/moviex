@@ -1,0 +1,16 @@
+.genres-results {
+  &__box {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 1.2rem;
+    row-gap: 6.2rem;
+    padding-right: 1.2rem;
+    margin-bottom: 6rem;
+  }
+  &__header {
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-bottom: 2.4rem;
+  }
+}

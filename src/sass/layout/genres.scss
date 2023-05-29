@@ -1,6 +1,6 @@
 .genres {
   padding-left: 3.4rem;
-  padding-right: 5rem;
+  padding-right: 6rem;
   &__title {
     font-size: 2rem;
     line-height: 2.8rem;
@@ -12,9 +12,14 @@
     line-height: 2.2rem;
     margin-bottom: 1.2rem;
     color: #d4d4d4bb;
+  }
+  &__link {
     &:hover,
     &:active {
       color: var(--font-color);
     }
+  }
+  &__link--active {
+    color: var(--font-color) !important;
   }
 }

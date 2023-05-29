@@ -22,5 +22,16 @@ class Model {
       throw err;
     }
   }
+  async loadMoviesByGenre(genreId) {
+    try {
+      const data = await getJSON(
+        `${API_URL}discover/movie?with_genres=${genreId}`
+      );
+      return data.results;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 }
 export default new Model();
