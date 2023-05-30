@@ -1,25 +1,42 @@
 import model from "./model";
 import genreView from "./view/genreView";
 import listView from "./view/listView";
-import itemView from "./view/itemView";
+import genresResultView from "./view/genresResultView";
 class Controller {
-  constructor(model, genreView, listView, itemView) {
+  constructor(model, genreView, listView, genresResultView) {
     this.model = model;
     this.genreView = genreView;
     this.listView = listView;
-    this.itemView = itemView;
+    this.genresResultView = genresResultView;
+    this.pageNum = 1;
   }
 
   async init() {
     const genres = await this.model.loadGenres();
     const popularList = await this.model.loadPopularList();
+    this.model.loadMovieData();
 
     this.genreView.render(genres);
     this.listView.renderList(popularList);
     this.genreView.genreListener(async (genreId) => {
-      const moviesByGenre = await this.model.loadMoviesByGenre(genreId);
-      console.log(moviesByGenre);
-      this.genreView.renderItems(moviesByGenre);
+      this.pageNum = 1;
+      const moviesByGenre = await this.model.loadMoviesByGenre(
+        genreId,
+        this.pageNum
+      );
+
+      this.genresResultView.renderItems(moviesByGenre);
+      this.pageNum++;
+    });
+
+    this.genresResultView.btnListener(async () => {
+      let genreId = genreView.getGenreId();
+      const moviesByGenre = await this.model.loadMoviesByGenre(
+        genreId,
+        this.pageNum
+      );
+      this.pageNum++;
+      this.genresResultView.renderItems(moviesByGenre);
     });
 
     this.listView.prevBtnListener();
@@ -27,5 +44,5 @@ class Controller {
   }
 }
 
-const controller = new Controller(model, genreView, listView);
+const controller = new Controller(model, genreView, listView, genresResultView);
 controller.init();

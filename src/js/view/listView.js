@@ -1,4 +1,4 @@
-import ItemView from "./itemView";
+import ItemView from "./View";
 
 class ListView extends ItemView {
   list = document.querySelector(".lists__list");

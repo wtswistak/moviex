@@ -22,12 +22,22 @@ class Model {
       throw err;
     }
   }
-  async loadMoviesByGenre(genreId) {
+  async loadMoviesByGenre(genreId, page) {
     try {
       const data = await getJSON(
-        `${API_URL}discover/movie?with_genres=${genreId}`
+        `${API_URL}discover/movie?with_genres=${genreId}&page=${page}`
       );
       return data.results;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+  async loadMovieData() {
+    try {
+      const data = await getJSON(`${API_URL}movie/20`);
+      console.log(data);
+      return data;
     } catch (err) {
       console.log(err);
       throw err;

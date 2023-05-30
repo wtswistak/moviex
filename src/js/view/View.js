@@ -1,4 +1,4 @@
-export default class ItemView {
+export default class View {
   renderItem(className, movie) {
     return `<div class="${className}">
     <a class="movie-link" href="#">
