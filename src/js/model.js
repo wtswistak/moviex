@@ -33,10 +33,9 @@ class Model {
       throw err;
     }
   }
-  async loadMovieData() {
+  async loadMovieData(id) {
     try {
-      const data = await getJSON(`${API_URL}movie/20`);
-      console.log(data);
+      const data = await getJSON(`${API_URL}movie/${id}`);
       return data;
     } catch (err) {
       console.log(err);

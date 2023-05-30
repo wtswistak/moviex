@@ -1,0 +1,69 @@
+.hero {
+  position: relative;
+  width: 100%;
+  display: flex;
+  padding-bottom: 14rem;
+  margin-bottom: 6rem;
+
+  &::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.75;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        to right,
+        rgb(0, 0, 0),
+        rgba(0, 0, 0, 0.603)
+      ),
+      var(--background-image);
+  }
+  &__movie-data {
+    padding-right: 20rem;
+  }
+  &__img {
+    max-width: 20%;
+    margin-right: 3rem;
+  }
+  &__title {
+    margin-top: 2.2rem;
+    font-size: 3.4rem;
+    font-weight: 500;
+    margin-bottom: 1.4rem;
+  }
+  &__details {
+    display: flex;
+    align-items: center;
+    & > svg {
+      transform: translateY(-0.9px);
+      width: 1.4rem;
+    }
+  }
+  &__year {
+    font-size: 1.4rem;
+    margin-right: 2rem;
+    padding: 0.5rem;
+    background-color: #3b3846;
+    border-radius: var(--border-radius-btn);
+  }
+  &__vote {
+    font-size: 1.4rem;
+  }
+  &__overview {
+    margin-top: 1.2rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.4rem;
+    margin-right: 16rem;
+    line-height: 2.1rem;
+  }
+  &__genres {
+    margin-top: 1.2rem;
+    font-size: 1.6rem;
+    color: #a0a0a0;
+  }
+}
