@@ -42,5 +42,15 @@ class Model {
       throw err;
     }
   }
+  async loadCrew(id) {
+    try {
+      const data = await getJSON(`${API_URL}movie/${id}/credits`);
+      console.log(data);
+      return data;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 }
 export default new Model();

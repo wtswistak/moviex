@@ -42,8 +42,8 @@ class Controller {
 
     this.heroView.heroItemListener(async (id) => {
       const movieData = await this.model.loadMovieData(id);
-      console.log(movieData);
-      this.heroView.renderHero(movieData);
+      const crew = await this.model.loadCrew(id);
+      this.heroView.renderHero(movieData, crew);
     });
 
     this.listView.prevBtnListener();

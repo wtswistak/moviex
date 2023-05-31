@@ -27,7 +27,7 @@ class GenreView {
     e.target.classList.add("genres__link--active");
   }
 
-  genreListener(renderElements) {
+  genreListener(callback) {
     const genresArray = document.querySelectorAll(".genres__link");
 
     genresArray.forEach((element) =>
@@ -40,7 +40,7 @@ class GenreView {
         this.genreId = targetId;
         const genreName = e.target.innerText;
         this.headerName.innerHTML = `${genreName} movies`;
-        renderElements(targetId);
+        callback(targetId);
       })
     );
   }
