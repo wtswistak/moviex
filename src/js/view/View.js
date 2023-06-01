@@ -13,4 +13,15 @@ export default class View {
     </div>
   </div>`;
   }
+  getDirector(crew) {
+    const director = crew.crew.find((item) => item.job === "Director").name;
+    return director;
+  }
+  getActors(crew) {
+    const actors = crew.cast
+      .slice(0, 8)
+      .map((actor) => actor.original_name)
+      .join(", ");
+    return actors;
+  }
 }

@@ -27,8 +27,8 @@
   &__poster {
     width: 100%;
     height: auto;
-    position: relative;
     margin-bottom: 0.8rem;
+    border-radius: 0.8rem;
   }
   &__title {
     font-size: 1.6rem;
@@ -63,4 +63,3 @@
 .btn-next {
   right: 0;
 }
-

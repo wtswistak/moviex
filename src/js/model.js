@@ -45,8 +45,20 @@ class Model {
   async loadCrew(id) {
     try {
       const data = await getJSON(`${API_URL}movie/${id}/credits`);
-      console.log(data);
       return data;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
+  async loadUpcomingList() {
+    try {
+      const data = await getJSON(
+        `${API_URL}movie/upcoming?language=en-US&page=1`
+      );
+      return data.results.filter(
+        (item) => new Date(item.release_date) > new Date().getTime()
+      );
     } catch (err) {
       console.log(err);
       throw err;

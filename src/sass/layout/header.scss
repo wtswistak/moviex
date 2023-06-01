@@ -26,6 +26,10 @@
     background-color: var(--dark-color);
     align-items: center;
     border-radius: var(--border-radius-btn);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0 0 0 1.8px #a7a7a7;
+    }
   }
   &__input {
     min-width: 20rem;

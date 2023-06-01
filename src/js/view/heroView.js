@@ -1,26 +1,18 @@
-class HeroView {
+import View from "./View";
+
+class HeroView extends View {
   parentEl = document.querySelector(".hero");
   container = document.querySelector(".block");
+  banerEl = document.querySelector(".baner");
 
   removeHidden() {
     this.parentEl.classList.remove("hidden");
   }
-  getActors(crew) {
-    const actors = crew.cast
-      .slice(0, 8)
-      .map((actor) => actor.original_name)
-      .join(", ");
-    return actors;
-  }
-  getDirector(crew) {
-    const director = crew.crew.find((item) => item.job === "Director").name;
-    return director;
-  }
 
   createHeroElement(movie, crew) {
     const actors = this.getActors(crew);
-    const genres = movie.genres.map((genre) => genre.name).join(", ");
     const director = this.getDirector(crew);
+    const genres = movie.genres.map((genre) => genre.name).join(", ");
 
     return `
     <img class="hero__img" src="https://image.tmdb.org/t/p/w500/${
@@ -37,10 +29,10 @@ class HeroView {
       <p class="hero__genres">${genres}</p>
 
       <p class="hero__overview">${movie.overview}</p>
-      <p class="hero__cast-p">Cast</p>
-      <p class="hero__actors">${actors}</p>
-      <p class="hero__cast-p">Director</p>
-      <p class="hero__actors">${director}</p>
+      <p class="hero__sm-header">Cast</p>
+      <p class="hero__bottom-paragraph">${actors}</p>
+      <p class="hero__sm-header">Director</p>
+      <p class="hero__bottom-paragraph">${director}</p>
 
     </div>`;
   }
@@ -65,6 +57,7 @@ class HeroView {
   renderHero(movie, crew) {
     this.removeHidden();
     this.parentEl.innerHTML = "";
+    this.banerEl.classList.add("hidden");
     this.renderBgImage(movie);
     this.parentEl.insertAdjacentHTML(
       "afterbegin",
