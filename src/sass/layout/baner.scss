@@ -9,24 +9,27 @@
   &__title {
     font-size: 3.8rem;
     font-weight: 500;
-    margin-bottom: 1.8rem;
+    margin-bottom: 4.8rem;
     line-height: 3.9rem;
   }
   &__details {
-    margin-bottom: 1.4rem;
+    margin-bottom: 2.2rem;
   }
   &__overview {
     font-size: 1.4rem;
-    line-height: 2rem;
+    line-height: 2.2rem;
     max-width: 70rem;
     color: #d4d4d4;
+    margin-bottom: 4rem;
   }
   &::before {
     z-index: -1;
     content: "";
     position: absolute;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
     opacity: 0.75;
     top: 0;
     left: 0;
