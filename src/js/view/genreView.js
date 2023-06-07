@@ -3,6 +3,7 @@ class GenreView {
   headerName = document.querySelector(".genres-results__header");
   itemsBox = document.querySelector(".genres-results__box");
   parentEl = document.querySelector(".genres-results");
+  listsBox = document.querySelector(".lists");
 
   genreId;
 
@@ -32,6 +33,7 @@ class GenreView {
 
     genresArray.forEach((element) =>
       element.addEventListener("click", (e) => {
+        this.listsBox.classList.add("hidden");
         this.activeCheck(e);
         this.parentEl.classList.remove("hidden");
         this.itemsBox.innerHTML = "";

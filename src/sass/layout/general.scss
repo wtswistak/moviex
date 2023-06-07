@@ -1,11 +1,12 @@
 body {
-  background-color: black;
-  color: #ececec;
+  background-color: #000;
+  color: var(--font-color);
 }
 .container {
   display: flex;
   overflow: hidden;
   width: 100%;
+  justify-content: space-between;
 }
 .block {
   display: block;
@@ -18,4 +19,3 @@ body {
   color: #e7bf0d;
   margin-right: 0.4rem;
 }
-

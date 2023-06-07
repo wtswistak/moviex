@@ -1,6 +1,9 @@
 .genres {
   padding-left: 3.4rem;
   padding-right: 6rem;
+  top: 0;
+  position: sticky;
+
   &__title {
     font-size: 2rem;
     line-height: 2.8rem;
@@ -10,10 +13,12 @@
   &__list-item {
     font-size: 1.6rem;
     line-height: 2.2rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
     color: #d4d4d4bb;
   }
   &__link {
+    padding: 0.2rem 2rem 0.2rem 0;
+    display: block;
     &:hover,
     &:active {
       color: var(--font-color);
@@ -21,5 +26,8 @@
   }
   &__link--active {
     color: var(--font-color) !important;
+  }
+  @include breakpoint(desktop) {
+    padding-right: 3rem;
   }
 }

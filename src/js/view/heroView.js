@@ -42,8 +42,10 @@ class HeroView extends View {
       const movieLink = e.target.closest(".movie-link");
       if (movieLink) {
         e.preventDefault();
+
         const targetId = parseInt(movieLink.dataset.movieId);
         callback(targetId);
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     });
   }

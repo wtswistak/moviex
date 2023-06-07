@@ -1,0 +1,29 @@
+$mobile: 39em;
+$tablet: 48em;
+$large-tablet: 64em;
+$desktop-sm: 75em;
+$desktop: 87.5em;
+
+@mixin breakpoint($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: $mobile) {
+      @content;
+    }
+  } @else if $breakpoint == large-tablet {
+    @media (max-width: $large-tablet) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: $tablet) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-sm {
+    @media (max-width: $desktop-sm) {
+      @content;
+    }
+  } @else if $breakpoint == desktop {
+    @media (max-width: $desktop) {
+      @content;
+    }
+  }
+}
