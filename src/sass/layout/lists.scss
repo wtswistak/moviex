@@ -8,13 +8,10 @@
     font-weight: 500;
   }
   &__list {
-    width: calc(100vw - 235px);
+    width: calc(100% - 0.8rem);
     position: relative;
     display: flex;
     margin-bottom: 8rem;
-    @include breakpoint(desktop) {
-      width: calc(100vw - 201px);
-    }
   }
   &__item {
     transition: transform 250ms ease-in-out;
@@ -65,5 +62,4 @@
 }
 .btn-next {
   right: 0;
-  margin-right: 0.4rem;
 }

@@ -42,5 +42,11 @@
         rgba(0, 0, 0, 0.253)
       ),
       var(--background-image);
+    @include breakpoint(desktop-sm) {
+      width: calc(100% - 1.2rem);
+    }
+  }
+  @include breakpoint(desktop-sm) {
+    margin-bottom: 6rem;
   }
 }

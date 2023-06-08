@@ -1,8 +1,6 @@
 .genres {
   padding-left: 3.4rem;
   padding-right: 6rem;
-  top: 0;
-  position: sticky;
 
   &__title {
     font-size: 2rem;
@@ -29,5 +27,8 @@
   }
   @include breakpoint(desktop) {
     padding-right: 3rem;
+  }
+  @include breakpoint(desktop-sm) {
+    padding: 0 1.6rem 0 2rem;
   }
 }
