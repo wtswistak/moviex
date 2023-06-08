@@ -29,11 +29,14 @@ class Controller {
     const popularList = await this.model.loadPopularList();
     const upcomingList = await this.model.loadUpcomingList();
 
-    console.log(upcomingList);
-    console.log(upcomingList[0]);
+    // console.log(upcomingList);
+    // console.log(upcomingList[0]);
     this.banerView.renderBanerEl(upcomingList[5]);
 
     this.genreView.render(genres);
+    this.genreView.showBtnListener();
+    this.genreView.hideBtnListener();
+
     this.listView.renderList(popularList);
     this.genreView.genreListener(async (genreId) => {
       this.pageNum = 1;

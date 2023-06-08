@@ -4,8 +4,12 @@ class GenreView {
   itemsBox = document.querySelector(".genres-results__box");
   parentEl = document.querySelector(".genres-results");
   listsBox = document.querySelector(".lists");
+  genresContainer = document.querySelector(".genres");
 
   genreId;
+
+  showBtn = document.querySelector(".right-chevron");
+  hideBtn = document.querySelector(".left-chevron");
 
   createGenre(genre) {
     return `<li class="genres__list-item">
@@ -49,6 +53,23 @@ class GenreView {
 
   getGenreId() {
     return this.genreId;
+  }
+
+  btnToggler() {
+    this.showBtn.classList.toggle("hidden");
+    this.hideBtn.classList.toggle("hidden");
+  }
+  showBtnListener() {
+    this.showBtn.addEventListener("click", () => {
+      this.btnToggler();
+      this.genresContainer.classList.add("show");
+    });
+  }
+  hideBtnListener() {
+    this.hideBtn.addEventListener("click", () => {
+      this.btnToggler();
+      this.genresContainer.classList.remove("show");
+    });
   }
 }
 

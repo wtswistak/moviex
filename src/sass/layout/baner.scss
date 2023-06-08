@@ -1,7 +1,7 @@
 .baner {
   position: relative;
   width: 100%;
-  padding: 8rem;
+  padding: 8rem 6rem;
   border-radius: 1rem;
   margin-right: 2rem;
   margin-bottom: 8rem;
@@ -46,6 +46,7 @@
       width: calc(100% - 1.2rem);
     }
   }
+
   @include breakpoint(desktop-sm) {
     margin-bottom: 6rem;
   }

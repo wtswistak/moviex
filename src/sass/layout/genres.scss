@@ -1,6 +1,11 @@
 .genres {
+  background-color: #000;
   padding-left: 3.4rem;
   padding-right: 6rem;
+  align-self: flex-start;
+  position: relative;
+  z-index: 500;
+  transition: all 0.4s ease-in-out;
 
   &__title {
     font-size: 2rem;
@@ -25,10 +30,37 @@
   &__link--active {
     color: var(--font-color) !important;
   }
+  & &__icon {
+    display: none;
+    background-color: #000;
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateX(100%);
+    cursor: pointer;
+    border: 1px solid #fff;
+  }
   @include breakpoint(desktop) {
     padding-right: 3rem;
   }
   @include breakpoint(desktop-sm) {
     padding: 0 1.6rem 0 2rem;
   }
+  @include breakpoint(large-tablet) {
+    position: fixed;
+    // right: calc(100% - 30px);
+    transform: translateX(-100%);
+    & &__icon {
+      display: block;
+    }
+  }
+}
+
+.show {
+  transform: translateX(0%);
+}
+.hide {
+  transform: translateX(-100%);
 }
