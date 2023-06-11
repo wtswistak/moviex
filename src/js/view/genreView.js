@@ -56,8 +56,8 @@ class GenreView {
   }
 
   btnToggler() {
-    this.showBtn.classList.toggle("hidden");
-    this.hideBtn.classList.toggle("hidden");
+    this.showBtn.classList.toggle("opacity-none");
+    this.hideBtn.classList.toggle("opacity-none");
   }
   showBtnListener() {
     this.showBtn.addEventListener("click", () => {

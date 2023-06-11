@@ -8,14 +8,14 @@
     font-weight: 500;
   }
   &__list {
-    width: calc(100% - 0.8rem);
+    width: 100%;
     position: relative;
     display: flex;
     margin-bottom: 8rem;
   }
   &__item {
     transition: transform 250ms ease-in-out;
-    flex: 0 0 calc(100% / var(--items-per-screen) + 0.2rem);
+    flex: 0 0 calc(100% / var(--items-per-screen));
     padding-right: 1rem;
   }
   &__poster {
@@ -59,7 +59,14 @@
   @include breakpoint(desktop-sm) {
     --items-per-screen: 4;
   }
+  @include breakpoint(large-tablet) {
+    margin-left: 1rem;
+  }
+  @include breakpoint(tablet) {
+    --items-per-screen: 3;
+  }
 }
 .btn-next {
   right: 0;
+  margin-right: 1.5rem;
 }

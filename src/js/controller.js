@@ -31,7 +31,7 @@ class Controller {
 
     // console.log(upcomingList);
     // console.log(upcomingList[0]);
-    this.banerView.renderBanerEl(upcomingList[5]);
+    this.banerView.renderBanerEl(upcomingList[2]);
 
     this.genreView.render(genres);
     this.genreView.showBtnListener();
