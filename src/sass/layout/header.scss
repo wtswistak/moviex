@@ -35,22 +35,29 @@
     }
   }
   &__input {
-    min-width: 20rem;
+    width: 100%;
     padding: 1rem 1.4rem;
     font-size: 1.6rem;
     color: var(--light-color);
     &::placeholder {
       color: var(--light-color);
     }
+    @include breakpoint(tablet) {
+      width: 0px;
+      padding: 1rem 0;
+    }
   }
   &__search-btn {
     border: none;
     padding: 0.2rem 0.2rem;
     background-color: var(--dark-color);
-    margin-right: 1rem;
+    margin: 0 1rem;
     fill: var(--light-color);
     &:hover {
       cursor: pointer;
+    }
+    @include breakpoint(tablet) {
+      margin: 0 0.6rem;
     }
   }
 
@@ -59,6 +66,6 @@
     height: 2.4rem;
   }
   @include breakpoint(desktop-sm) {
-    padding: 1.8rem 1.2rem;
+    padding: 1.2rem;
   }
 }

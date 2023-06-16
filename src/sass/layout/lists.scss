@@ -30,9 +30,9 @@
   }
   &__btn {
     z-index: 10;
-    background-color: #f2f2f2d0;
+    background-color: #a5a5a5d0;
     border: none;
-    padding: 1rem;
+    padding: 0.7rem;
     margin: 0.5rem;
     cursor: pointer;
     position: absolute;
@@ -54,16 +54,23 @@
     color: #999999;
   }
   @include breakpoint(desktop) {
+    --items-per-screen: 6;
+  }
+  @media (max-width: 1276px) {
     --items-per-screen: 5;
   }
   @include breakpoint(desktop-sm) {
     --items-per-screen: 4;
   }
+
   @include breakpoint(large-tablet) {
     margin-left: 1rem;
   }
   @include breakpoint(tablet) {
     --items-per-screen: 3;
+  }
+  @include breakpoint(mobile) {
+    --items-per-screen: 2;
   }
 }
 .btn-next {

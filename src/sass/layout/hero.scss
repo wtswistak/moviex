@@ -9,6 +9,9 @@
   &__movie-data {
     max-width: 70rem;
     margin-right: 2.2rem;
+    @include breakpoint(tablet) {
+      margin: 1.2rem 1rem;
+    }
   }
   &__img {
     max-width: 20%;
@@ -17,12 +20,18 @@
     margin-right: 3rem;
     border-radius: 0.8rem;
     margin-left: 1rem;
+    @include breakpoint(large-tablet) {
+      min-width: 20rem;
+    }
   }
   &__title {
     margin-top: 0.6rem;
     font-size: 3.8rem;
     font-weight: 500;
     margin-bottom: 2.4rem;
+    @include breakpoint(large-tablet) {
+      font-size: 3.2rem;
+    }
   }
   &__details {
     display: flex;
@@ -80,5 +89,10 @@
         rgba(0, 0, 0, 0.253)
       ),
       var(--background-image);
+  }
+  @include breakpoint(tablet) {
+    display: block;
+    padding-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 }

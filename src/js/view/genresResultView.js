@@ -4,10 +4,12 @@ class GenresResultView extends View {
   loadBtn = document.querySelector(".genres-results__load-btn");
   itemClass = "genres-results__item";
   itemsBox = document.querySelector(".genres-results__box");
-  banerParent = document.querySelector(".baner");
+  banerEl = document.querySelector(".baner");
+  heroEl = document.querySelector(".hero");
 
   renderItems(movies) {
-    this.banerParent.classList.add("hidden");
+    this.banerEl.classList.add("hidden");
+    this.heroEl.classList.add("hidden");
 
     movies.map((movie) =>
       this.itemsBox.insertAdjacentHTML(
