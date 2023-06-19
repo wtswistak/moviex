@@ -64,5 +64,16 @@ class Model {
       throw err;
     }
   }
+  async searchMovie(searchInput) {
+    try {
+      const data = await getJSON(
+        `${API_URL}/search/movie?query=${searchInput}`
+      );
+      return data.results;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 }
 export default new Model();

@@ -5,6 +5,7 @@ import listView from "./view/listView";
 import genresResultView from "./view/genresResultView";
 import heroView from "./view/heroView";
 import banerView from "./view/banerView";
+import searchView from "./view/searchView";
 
 class Controller {
   constructor(
@@ -13,7 +14,8 @@ class Controller {
     listView,
     genresResultView,
     heroView,
-    banerView
+    banerView,
+    searchView
   ) {
     this.model = model;
     this.genreView = genreView;
@@ -21,6 +23,7 @@ class Controller {
     this.genresResultView = genresResultView;
     this.heroView = heroView;
     this.banerView = banerView;
+    this.searchView = searchView;
     this.pageNum = 1;
   }
 
@@ -28,6 +31,11 @@ class Controller {
     const genres = await this.model.loadGenres();
     const popularList = await this.model.loadPopularList();
     const upcomingList = await this.model.loadUpcomingList();
+
+    this.searchView.inputListener(async (movieName) => {
+      const searchData = await this.model.searchMovie(`${movieName}`);
+      this.searchView.renderItems(searchData);
+    });
 
     // console.log(upcomingList);
     // console.log(upcomingList[0]);
@@ -76,6 +84,7 @@ const controller = new Controller(
   listView,
   genresResultView,
   heroView,
-  banerView
+  banerView,
+  searchView
 );
 controller.init();
