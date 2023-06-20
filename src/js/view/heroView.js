@@ -5,6 +5,7 @@ class HeroView extends View {
   container = document.querySelector(".block");
   banerEl = document.querySelector(".baner");
   searchBox = document.querySelector(".search");
+  exitIcon = document.querySelector(".search__icon");
 
   removeHidden() {
     this.parentEl.classList.remove("hidden");
@@ -43,7 +44,8 @@ class HeroView extends View {
       const movieLink = e.target.closest(".movie-link");
       if (movieLink) {
         e.preventDefault();
-        this.searchBox.classList.add("hidden");
+        this.searchBox.classList.add("opacity-none");
+        this.exitIcon.classList.add("opacity-none");
 
         const targetId = parseInt(movieLink.dataset.movieId);
         callback(targetId);

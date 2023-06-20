@@ -32,11 +32,6 @@ class Controller {
     const popularList = await this.model.loadPopularList();
     const upcomingList = await this.model.loadUpcomingList();
 
-    this.searchView.inputListener(async (movieName) => {
-      const searchData = await this.model.searchMovie(`${movieName}`);
-      this.searchView.renderItems(searchData);
-    });
-
     // console.log(upcomingList);
     // console.log(upcomingList[0]);
     this.banerView.renderBanerEl(upcomingList[2]);
@@ -72,6 +67,15 @@ class Controller {
       const crew = await this.model.loadCrew(id);
       this.heroView.renderHero(movieData, crew);
     });
+
+    this.searchView.inputListener(async (movieName) => {
+      const searchData = await this.model.searchMovie(`${movieName}`);
+
+      this.searchView.renderItems(searchData);
+    });
+    this.searchView.exitListener();
+    this.searchView.searchIconListener();
+    this.searchView.exitInputListener();
 
     this.listView.prevBtnListener();
     this.listView.nextBtnListener();

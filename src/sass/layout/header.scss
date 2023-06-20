@@ -6,10 +6,11 @@
   width: 100%;
   padding: 1.8rem 3.4rem;
   // border-bottom: 1px solid var(--dark-color);
-  box-shadow: 0 1px 5px rgba(155, 155, 155, 0.459);
+  box-shadow: 0 0.1px 14px rgba(150, 150, 150, 0.507);
   top: 0;
   position: sticky;
-  z-index: 1000;
+  z-index: 2200;
+  height: 6.5rem;
 
   &__logo-box {
     display: flex;
@@ -30,23 +31,30 @@
     background-color: var(--dark-color);
     align-items: center;
     border-radius: var(--border-radius-btn);
-    transition: all 0.3s ease-in-out;
+    transition: box-shadow 0.4s ease-in-out;
     &:hover {
       box-shadow: 0 0 0 1.8px #a7a7a7;
     }
   }
+  &__form-edit {
+    width: 100%;
+  }
   &__input {
     width: 100%;
-    padding: 1rem 1.4rem;
+    padding: 0.8rem 1.4rem;
     font-size: 1.6rem;
     color: var(--light-color);
     &::placeholder {
       color: var(--light-color);
     }
-    @include breakpoint(tablet) {
+    @include breakpoint(mobile) {
       width: 0px;
-      padding: 1rem 0;
+      padding: 0.8rem 0;
     }
+  }
+  &__input-edit {
+    width: 100%;
+    padding: 0.8rem 1.4rem;
   }
   &__search-btn {
     border: none;
@@ -63,8 +71,9 @@
   }
 
   &__icon {
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    color: var(--light-color);
   }
   @include breakpoint(desktop-sm) {
     padding: 1.2rem;

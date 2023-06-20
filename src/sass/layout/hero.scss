@@ -29,7 +29,7 @@
     font-size: 3.8rem;
     font-weight: 500;
     margin-bottom: 2.4rem;
-    @include breakpoint(large-tablet) {
+    @include breakpoint(desktop-sm) {
       font-size: 3.2rem;
     }
   }

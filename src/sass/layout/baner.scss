@@ -41,14 +41,17 @@
       ),
       var(--background-image);
     @include breakpoint(desktop-sm) {
-      width: calc(100% - 2rem);
+      width: calc(100% - 1rem);
     }
     @include breakpoint(large-tablet) {
-      left: 1rem;
+      width: 100%;
     }
   }
 
   @include breakpoint(desktop-sm) {
     margin-bottom: 6rem;
+  }
+  @include breakpoint(tablet) {
+    padding: 6rem 4rem;
   }
 }
