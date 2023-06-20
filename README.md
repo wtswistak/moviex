@@ -1,2 +1,2 @@
-# moviex
-Live: moviex-wt.netlify.app
+# Moviex
+Live: [moviex-wt.netlify.app](https://moviex-wt.netlify.app/)
