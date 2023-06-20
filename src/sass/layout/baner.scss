@@ -1,14 +1,29 @@
 .baner {
   position: relative;
   width: 100%;
-  padding: 8rem 6rem;
+  padding-top: 6rem;
+  padding-bottom: 3rem;
   border-radius: 1rem;
   margin: 3.4rem 2rem 8rem 0;
+  transition: all 0.9s ease-in-out;
+
+  &__box {
+    margin: 0 6rem 4rem 6rem;
+    @include breakpoint(tablet) {
+      margin: 0 3rem 4rem;
+    }
+    @include breakpoint(mobile) {
+      margin: 0 1.6rem 4rem;
+    }
+  }
   &__title {
     font-size: 3.8rem;
     font-weight: 500;
-    margin-bottom: 4.8rem;
+    margin-bottom: 2.8rem;
     line-height: 3.9rem;
+    @include breakpoint(tablet) {
+      font-size: 3rem;
+    }
   }
   &__details {
     margin-bottom: 2.2rem;
@@ -18,7 +33,27 @@
     line-height: 2.2rem;
     max-width: 70rem;
     color: #d4d4d4;
-    margin-bottom: 4rem;
+  }
+  &__slider {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 3rem;
+    gap: 0.8rem;
+    @include breakpoint(desktop-sm) {
+      margin-right: 2rem;
+    }
+    @include breakpoint(mobile) {
+      margin-right: 0.6rem;
+      gap: 0.6rem;
+    }
+  }
+
+  &__poster {
+    width: 10rem;
+    filter: brightness(0.4);
+    @include breakpoint(tablet) {
+      width: 8.5rem;
+    }
   }
   &::before {
     z-index: -1;
@@ -40,6 +75,7 @@
         rgba(0, 0, 0, 0.253)
       ),
       var(--background-image);
+
     @include breakpoint(desktop-sm) {
       width: calc(100% - 1rem);
     }
@@ -52,6 +88,14 @@
     margin-bottom: 6rem;
   }
   @include breakpoint(tablet) {
-    padding: 6rem 4rem;
+    padding-top: 3rem;
   }
+}
+.animated {
+  animation: fadeIn 1s;
+}
+.active {
+  transition: all 0.4s;
+  filter: brightness(2.2);
+  transform: translateY(-1rem);
 }

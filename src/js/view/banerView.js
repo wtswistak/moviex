@@ -1,6 +1,8 @@
 import View from "./View";
 class BanerView extends View {
   parentEl = document.querySelector(".baner");
+  banerBox = document.querySelector(".baner__box");
+  sliderBox = document.querySelector(".baner__slider");
 
   renderBgImage(movie) {
     this.parentEl.style.setProperty(
@@ -10,18 +12,45 @@ class BanerView extends View {
   }
   render;
   createBanerEl(movie) {
-    return `<p class="baner__title">${movie.title}</p>
-    <div class="baner__details">
-      <span class="hero__year">${movie.release_date}</span>
+    return `<p class="baner__title animated">${movie.title}</p>
+    <div class="baner__details animated">
+      <span class="hero__year animated" >${movie.release_date}</span>
     </div>
 
-    <p class="baner__overview">${movie.overview}</p>`;
+    <p class="baner__overview animated">${movie.overview}</p>`;
   }
 
   renderBanerEl(movie) {
-    this.parentEl.innerHTML = "";
+    this.banerBox.innerHTML = "";
     this.renderBgImage(movie);
-    this.parentEl.insertAdjacentHTML("afterbegin", this.createBanerEl(movie));
+    this.banerBox.insertAdjacentHTML("afterbegin", this.createBanerEl(movie));
+  }
+  createSliderItem(movie) {
+    return `<a class="movie-link-slider" data-movie-id=${movie.id} href="#${movie.title}">
+  <img class="baner__poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="movie-poster" />
+</a>`;
+  }
+
+  renderSliderItems(movies) {
+    movies.forEach((el) => {
+      this.sliderBox.insertAdjacentHTML("beforeend", this.createSliderItem(el));
+    });
+  }
+
+  sliderItemsListner(callback) {
+    this.sliderBox.addEventListener("click", (e) => {
+      const movieLink = e.target.closest(".movie-link-slider");
+      if (!movieLink) return;
+      const targetId = parseInt(movieLink.dataset.movieId);
+      callback(targetId);
+
+      const sliderItems = document.querySelectorAll(".movie-link-slider");
+      sliderItems.forEach((el) => {
+        parseInt(el.dataset.movieId) === targetId
+          ? el.classList.add("active")
+          : el.classList.remove("active");
+      });
+    });
   }
 }
 

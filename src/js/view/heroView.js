@@ -43,7 +43,6 @@ class HeroView extends View {
     this.container.addEventListener("click", (e) => {
       const movieLink = e.target.closest(".movie-link");
       if (movieLink) {
-        e.preventDefault();
         this.searchBox.classList.add("opacity-none");
         this.exitIcon.classList.add("opacity-none");
 

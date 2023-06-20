@@ -32,7 +32,8 @@
     align-items: center;
     border-radius: var(--border-radius-btn);
     transition: box-shadow 0.4s ease-in-out;
-    &:hover {
+    &:hover,
+    &:focus-within {
       box-shadow: 0 0 0 1.8px #a7a7a7;
     }
   }

@@ -32,9 +32,13 @@ class Controller {
     const popularList = await this.model.loadPopularList();
     const upcomingList = await this.model.loadUpcomingList();
 
-    // console.log(upcomingList);
-    // console.log(upcomingList[0]);
-    this.banerView.renderBanerEl(upcomingList[2]);
+    this.banerView.renderBanerEl(upcomingList[0]);
+    banerView.renderSliderItems(upcomingList);
+
+    this.banerView.sliderItemsListner(async (id) => {
+      const movieData = await this.model.loadMovieData(id);
+      this.banerView.renderBanerEl(movieData);
+    });
 
     this.genreView.render(genres);
     this.genreView.showBtnListener();
