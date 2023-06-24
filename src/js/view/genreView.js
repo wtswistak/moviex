@@ -5,7 +5,6 @@ class GenreView {
   parentEl = document.querySelector(".genres-results");
   listsBox = document.querySelector(".lists");
   genresContainer = document.querySelector(".genres");
-
   genreId;
 
   showBtn = document.querySelector(".right-chevron");
@@ -33,9 +32,9 @@ class GenreView {
   }
 
   genreListener(callback) {
-    const genresArray = document.querySelectorAll(".genres__link");
+    const genresLinks = document.querySelectorAll(".genres__link");
 
-    genresArray.forEach((element) =>
+    genresLinks.forEach((element) =>
       element.addEventListener("click", (e) => {
         this.listsBox.classList.add("hidden");
         this.activeCheck(e);
@@ -46,6 +45,10 @@ class GenreView {
         this.genreId = targetId;
         const genreName = e.target.innerText;
         this.headerName.innerHTML = `${genreName} movies`;
+
+        this.genresContainer.classList.remove("show");
+        this.btnToggler();
+
         callback(targetId);
       })
     );

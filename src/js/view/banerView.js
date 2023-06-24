@@ -38,13 +38,14 @@ class BanerView extends View {
   }
 
   sliderItemsListner(callback) {
+    const sliderItems = document.querySelectorAll(".movie-link-slider");
+    sliderItems[0].classList.add("active");
     this.sliderBox.addEventListener("click", (e) => {
       const movieLink = e.target.closest(".movie-link-slider");
       if (!movieLink) return;
       const targetId = parseInt(movieLink.dataset.movieId);
       callback(targetId);
 
-      const sliderItems = document.querySelectorAll(".movie-link-slider");
       sliderItems.forEach((el) => {
         parseInt(el.dataset.movieId) === targetId
           ? el.classList.add("active")

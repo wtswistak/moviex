@@ -28,6 +28,9 @@
     @include breakpoint(mobile) {
       grid-template-columns: repeat(2, 1fr);
     }
+    @include breakpoint(tablet) {
+      row-gap: 3.6rem;
+    }
   }
 
   &__load-btn {

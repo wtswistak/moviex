@@ -54,7 +54,7 @@ class Model {
   async loadUpcomingList() {
     try {
       const data = await getJSON(
-        `${API_URL}movie/upcoming?language=en-US&page=2`
+        `${API_URL}movie/upcoming?language=en-US&page=1`
       );
       return data.results.filter(
         (item) => new Date(item.release_date) > new Date().getTime()

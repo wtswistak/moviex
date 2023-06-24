@@ -5,8 +5,7 @@
   align-items: center;
   width: 100%;
   padding: 1.8rem 3.4rem;
-  // border-bottom: 1px solid var(--dark-color);
-  box-shadow: 0 0.1px 14px rgba(150, 150, 150, 0.507);
+  border-bottom: 2px solid rgba(59, 59, 59, 0.473);
   top: 0;
   position: sticky;
   z-index: 2200;
@@ -59,7 +58,7 @@
   }
   &__search-btn {
     border: none;
-    padding: 0.2rem 0.2rem;
+    padding: 0.2rem 0.2rem 0 0.2rem;
     background-color: var(--dark-color);
     margin: 0 1rem;
     fill: var(--light-color);
