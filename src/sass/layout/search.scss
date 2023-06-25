@@ -7,17 +7,24 @@
   transform: translateX(-50%);
   justify-content: center;
   height: auto;
-  // max-height: calc(100% - 7.8rem);
+  max-height: calc(100% - 7.8rem);
   min-height: 20%;
-  overflow-y: hidden;
+  overflow-y: scroll;
   width: 100%;
   transition: all 0.4s ease-in-out;
   padding: 2rem 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: max-content;
-
   padding-left: 3.6rem;
+
+  &--no-results {
+    transition: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
   @include breakpoint(large-tablet) {
     padding-left: 1rem;
     grid-template-columns: 1fr;
@@ -51,7 +58,7 @@
     color: #a5a5a5;
     right: 0;
     top: 8.1rem;
-    z-index: 2600;
+    z-index: 2100;
     transition: all 0.4s ease-in-out;
     &:hover {
       transform: scale(1.2);

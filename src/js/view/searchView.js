@@ -1,4 +1,6 @@
-class SearchView {
+import View from "./View";
+
+class SearchView extends View {
   logoBox = document.querySelector(".header__logo-box");
   form = document.querySelector(".header__form");
   inputIcons = document.querySelectorAll(".header__icon");
@@ -16,9 +18,20 @@ class SearchView {
     `;
   }
   renderItems(data) {
-    data.map((element) => {
-      this.searchBox.insertAdjacentHTML("beforeend", this.createItem(element));
-    });
+    if (!data.length) {
+      this.searchBox.innerHTML = "No results";
+      this.searchBox.classList.add("search--no-results");
+    } else {
+      this.searchBox.innerHTML = "";
+      this.searchBox.classList.remove("search--no-results");
+
+      data.map((element) => {
+        this.searchBox.insertAdjacentHTML(
+          "beforeend",
+          this.createItem(element)
+        );
+      });
+    }
   }
 
   inputListener(callback) {
@@ -31,7 +44,7 @@ class SearchView {
         this.searchBox.classList.add("opacity-none");
         this.exitIcon.classList.add("opacity-none");
       }
-      this.searchBox.innerHTML = "";
+
       callback(inputValue);
     });
   }

@@ -74,7 +74,6 @@ class Controller {
 
     this.searchView.inputListener(async (movieName) => {
       const searchData = await this.model.searchMovie(`${movieName}`);
-
       this.searchView.renderItems(searchData);
     });
     this.searchView.exitListener();

@@ -23,3 +23,19 @@ body {
   color: #e7bf0d;
   margin-right: 0.4rem;
 }
+
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--light-color);
+  margin: 0 5px;
+  animation: bounce 1s infinite ease-in-out;
+}

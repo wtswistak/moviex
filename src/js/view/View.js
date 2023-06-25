@@ -13,6 +13,13 @@ export default class View {
     </div>
   </div>`;
   }
+  renderLoadingDots() {
+    return `<div class="loading-dots">
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>`;
+  }
   getDirector(crew) {
     const director = crew.crew.find((item) => item.job === "Director").name;
     return director;
