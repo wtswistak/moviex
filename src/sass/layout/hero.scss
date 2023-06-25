@@ -22,6 +22,7 @@
     margin-left: 1rem;
     @include breakpoint(large-tablet) {
       min-width: 20rem;
+      max-height: 100%;
     }
   }
   &__title {
