@@ -1,7 +1,7 @@
 .hero {
-  position: relative;
-  width: 100%;
   display: flex;
+  width: 100%;
+  position: relative;
   padding-bottom: 14rem;
   margin-bottom: 6rem;
   margin-top: 3.4rem;
@@ -14,12 +14,12 @@
     }
   }
   &__img {
+    height: 100%;
     max-width: 20%;
     min-width: 24rem;
-    height: 100%;
     margin-right: 3rem;
-    border-radius: 0.8rem;
     margin-left: 1rem;
+    border-radius: 0.8rem;
     @include breakpoint(large-tablet) {
       min-width: 20rem;
       max-height: 30rem;
@@ -27,9 +27,9 @@
   }
   &__title {
     margin-top: 0.6rem;
+    margin-bottom: 2.4rem;
     font-size: 3.8rem;
     font-weight: 500;
-    margin-bottom: 2.4rem;
     @include breakpoint(desktop-sm) {
       font-size: 3.2rem;
     }
@@ -39,14 +39,14 @@
     align-items: center;
     margin-bottom: var(--mrg-bot-hero);
     & > svg {
-      transform: translateY(-0.9px);
       width: 1.4rem;
+      transform: translateY(-0.9px);
     }
   }
   &__year {
-    font-size: 1.4rem;
     margin-right: 2rem;
     padding: 0.5rem;
+    font-size: 1.4rem;
     background-color: #3b3846;
     border-radius: var(--border-radius-btn);
   }
@@ -54,8 +54,8 @@
     font-size: 1.4rem;
   }
   &__overview {
-    font-size: 1.6rem;
     margin-bottom: 2.2rem;
+    font-size: 1.6rem;
     line-height: 2.1rem;
   }
   &__genres {
@@ -64,26 +64,26 @@
     color: #a0a0a0;
   }
   &__sm-header {
-    color: #a0a0a0;
+    margin-bottom: 0.2rem;
     font-weight: 500;
     font-size: 1.8rem;
-    margin-bottom: 0.2rem;
+    color: #a0a0a0;
   }
   &__bottom-paragraph {
-    font-size: 1.6rem;
     margin-bottom: var(--mrg-bot-hero);
+    font-size: 1.6rem;
   }
   &::before {
-    z-index: -1;
     content: "";
     position: absolute;
-    background-size: cover;
-    background-position: center;
-    opacity: 0.75;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.75;
+    background-size: cover;
+    background-position: center;
     background-image: linear-gradient(
         to right,
         rgb(0, 0, 0),

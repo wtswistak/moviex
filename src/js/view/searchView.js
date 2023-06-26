@@ -6,7 +6,7 @@ class SearchView extends View {
   inputIcons = document.querySelectorAll(".header__icon");
   searchBox = document.querySelector(".search");
   inputBox = document.querySelector(".header__input");
-  exitIcon = document.querySelector(".search__icon");
+  searchExitIcon = document.querySelector(".search__icon");
   searchIcon = document.querySelector(".header__icon-search");
   exitInputIcon = document.querySelector(".header__icon-exit");
 
@@ -37,12 +37,12 @@ class SearchView extends View {
   inputListener(callback) {
     this.inputBox.addEventListener("input", () => {
       this.searchBox.classList.remove("opacity-none");
-      this.exitIcon.classList.remove("opacity-none");
+      this.searchExitIcon.classList.remove("opacity-none");
 
       const inputValue = this.inputBox.value;
       if (inputValue.length === 0) {
         this.searchBox.classList.add("opacity-none");
-        this.exitIcon.classList.add("opacity-none");
+        this.searchExitIcon.classList.add("opacity-none");
       }
 
       callback(inputValue);
@@ -50,9 +50,9 @@ class SearchView extends View {
   }
 
   exitListener() {
-    this.exitIcon.addEventListener("click", () => {
+    this.searchExitIcon.addEventListener("click", () => {
       this.searchBox.classList.add("opacity-none");
-      this.exitIcon.classList.add("opacity-none");
+      this.searchExitIcon.classList.add("opacity-none");
     });
   }
   searchIconListener() {

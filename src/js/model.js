@@ -2,7 +2,7 @@ import { API_URL } from "./config";
 import { getJSON } from "./helper";
 
 class Model {
-  async loadGenres() {
+  async fetchGenres() {
     try {
       const data = await getJSON(`${API_URL}genre/movie/list`);
       return data.genres;
@@ -11,7 +11,7 @@ class Model {
       throw err;
     }
   }
-  async loadPopularList() {
+  async fetchPopularMovies() {
     try {
       const data = await getJSON(
         `${API_URL}movie/popular?language=en-US&page=1`
@@ -22,7 +22,7 @@ class Model {
       throw err;
     }
   }
-  async loadMoviesByGenre(genreId, page) {
+  async fetchMoviesByGenre(genreId, page) {
     try {
       const data = await getJSON(
         `${API_URL}discover/movie?with_genres=${genreId}&page=${page}`
@@ -33,7 +33,7 @@ class Model {
       throw err;
     }
   }
-  async loadMovieData(id) {
+  async fetchMovieData(id) {
     try {
       const data = await getJSON(`${API_URL}movie/${id}`);
       return data;
@@ -42,7 +42,7 @@ class Model {
       throw err;
     }
   }
-  async loadCrew(id) {
+  async fetchMovieCrew(id) {
     try {
       const data = await getJSON(`${API_URL}movie/${id}/credits`);
       return data;
@@ -51,7 +51,7 @@ class Model {
       throw err;
     }
   }
-  async loadUpcomingList() {
+  async fetchUpcomingMovies() {
     try {
       const data = await getJSON(
         `${API_URL}movie/upcoming?language=en-US&page=1`
@@ -64,7 +64,7 @@ class Model {
       throw err;
     }
   }
-  async searchMovie(searchInput) {
+  async searchMoviesByQuery(searchInput) {
     try {
       const data = await getJSON(
         `${API_URL}/search/movie?query=${searchInput}`

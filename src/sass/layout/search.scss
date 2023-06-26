@@ -1,29 +1,28 @@
 .search {
-  background-color: #000;
+  display: grid;
   position: absolute;
-  top: 7.8rem;
-  z-index: 2000;
-  left: 50%;
-  transform: translateX(-50%);
-  justify-content: center;
+  width: 100%;
   height: auto;
   max-height: calc(100% - 7.8rem);
   min-height: 20%;
-  overflow-y: scroll;
-  width: 100%;
-  transition: all 0.4s ease-in-out;
-  padding: 2rem 0;
-  display: grid;
+  top: 7.8rem;
+  left: 50%;
+  z-index: 2000;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: max-content;
+  justify-content: center;
+  overflow-y: scroll;
+  padding: 2rem 0;
   padding-left: 3.6rem;
-
+  background-color: #000;
+  transform: translateX(-50%);
+  transition: all 0.4s ease-in-out;
   &--no-results {
-    transition: none;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    transition: none;
   }
   @include breakpoint(large-tablet) {
     padding-left: 1rem;
@@ -49,16 +48,16 @@
     font-size: 1.6rem;
   }
   &__icon {
+    position: absolute;
+    height: 2.8rem;
+    width: 2.8rem;
+    top: 8.1rem;
+    right: 0;
+    z-index: 2100;
     margin: 1rem 0;
     margin-right: 3rem;
     cursor: pointer;
-    height: 2.8rem;
-    width: 2.8rem;
-    position: absolute;
     color: #a5a5a5;
-    right: 0;
-    top: 8.1rem;
-    z-index: 2100;
     transition: all 0.4s ease-in-out;
     &:hover {
       transform: scale(1.2);

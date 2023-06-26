@@ -1,7 +1,7 @@
 export default class View {
   renderItem(className, movie) {
     return `<div class="${className}">
-    <a class="movie-link" data-movie-id=${movie.id} href="#${movie.title}">
+    <a class="movie-link" data-movie-id="${movie.id}" href="#${movie.title}">
       <figure>
         <img class="lists__poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="movie-poster" />
         <figcaption class="lists__title">${movie.title}</figcaption>

@@ -34,12 +34,12 @@
   }
 
   &__load-btn {
-    background-color: var(--second-color);
-    border-radius: var(--border-radius-btn);
-    color: var(--font-color);
     align-self: center;
     margin: 0 auto;
     padding: 1.2rem 2.4rem;
+    background-color: var(--second-color);
+    border-radius: var(--border-radius-btn);
+    color: var(--font-color);
     font-size: 1.8rem;
     transition: all 0.2s ease-in-out;
     &:hover {

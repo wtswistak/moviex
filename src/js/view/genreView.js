@@ -12,12 +12,12 @@ class GenreView {
 
   createGenre(genre) {
     return `<li class="genres__list-item">
-    <a class="genres__link" data-genre-id=${
-      genre.id
-    } href="#${genre.name.toLowerCase()}">${genre.name}</a>
-  </li>`;
+      <a class="genres__link" data-genre-id=${genre.id} 
+        href="#${genre.name.toLowerCase()}">${genre.name}</a>
+    </li>`;
   }
   render(genres) {
+    if (!this.genresBox) return;
     genres.map((genre) =>
       this.genresBox.insertAdjacentHTML("beforeend", this.createGenre(genre))
     );
@@ -47,7 +47,7 @@ class GenreView {
         this.headerName.innerHTML = `${genreName} movies`;
 
         this.genresContainer.classList.remove("show");
-        this.btnToggler();
+        this.toggleBtns();
 
         callback(targetId);
       })
@@ -58,19 +58,19 @@ class GenreView {
     return this.genreId;
   }
 
-  btnToggler() {
+  toggleBtns() {
     this.showBtn.classList.toggle("opacity-none");
     this.hideBtn.classList.toggle("opacity-none");
   }
   showBtnListener() {
     this.showBtn.addEventListener("click", () => {
-      this.btnToggler();
+      this.toggleBtns();
       this.genresContainer.classList.add("show");
     });
   }
   hideBtnListener() {
     this.hideBtn.addEventListener("click", () => {
-      this.btnToggler();
+      this.toggleBtns();
       this.genresContainer.classList.remove("show");
     });
   }

@@ -1,8 +1,8 @@
 import View from "./View";
-class BanerView extends View {
-  parentEl = document.querySelector(".baner");
-  banerBox = document.querySelector(".baner__box");
-  sliderBox = document.querySelector(".baner__slider");
+class BannerView extends View {
+  parentEl = document.querySelector(".banner");
+  bannerBox = document.querySelector(".banner__box");
+  sliderBox = document.querySelector(".banner__slider");
 
   renderBgImage(movie) {
     this.parentEl.style.setProperty(
@@ -10,25 +10,23 @@ class BanerView extends View {
       `url("https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}")`
     );
   }
-  render;
-  createBanerEl(movie) {
-    return `<p class="baner__title animated">${movie.title}</p>
-    <div class="baner__details animated">
+  createBannerEl(movie) {
+    return `<p class="banner__title animated">${movie.title}</p>
+    <div class="banner__details animated">
       <span class="hero__year animated" >${movie.release_date}</span>
     </div>
-
-    <p class="baner__overview animated">${movie.overview}</p>`;
+    <p class="banner__overview animated">${movie.overview}</p>`;
   }
 
-  renderBanerEl(movie) {
-    this.banerBox.innerHTML = "";
+  renderBannerEl(movie) {
+    this.bannerBox.innerHTML = "";
     this.renderBgImage(movie);
-    this.banerBox.insertAdjacentHTML("afterbegin", this.createBanerEl(movie));
+    this.bannerBox.insertAdjacentHTML("afterbegin", this.createBannerEl(movie));
   }
   createSliderItem(movie) {
     return `<a class="movie-link-slider" data-movie-id=${movie.id} href="#${movie.title}">
-  <img class="baner__poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="movie-poster" />
-</a>`;
+     <img class="banner__poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="movie-poster" />
+    </a>`;
   }
 
   renderSliderItems(movies) {
@@ -55,4 +53,4 @@ class BanerView extends View {
   }
 }
 
-export default new BanerView();
+export default new BannerView();

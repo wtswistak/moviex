@@ -1,6 +1,6 @@
-import ItemView from "./View";
+import view from "./View";
 
-class ListView extends ItemView {
+class ListView extends view {
   list = document.querySelector(".lists__list");
   prevButton = document.querySelector(".btn-prev");
   nextButton = document.querySelector(".btn-next");

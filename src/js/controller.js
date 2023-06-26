@@ -4,7 +4,7 @@ import genreView from "./view/genreView";
 import listView from "./view/listView";
 import genresResultView from "./view/genresResultView";
 import heroView from "./view/heroView";
-import banerView from "./view/banerView";
+import bannerView from "./view/bannerView";
 import searchView from "./view/searchView";
 
 class Controller {
@@ -14,7 +14,7 @@ class Controller {
     listView,
     genresResultView,
     heroView,
-    banerView,
+    bannerView,
     searchView
   ) {
     this.model = model;
@@ -22,22 +22,22 @@ class Controller {
     this.listView = listView;
     this.genresResultView = genresResultView;
     this.heroView = heroView;
-    this.banerView = banerView;
+    this.bannerView = bannerView;
     this.searchView = searchView;
     this.pageNum = 1;
   }
 
   async init() {
-    const genres = await this.model.loadGenres();
-    const popularList = await this.model.loadPopularList();
-    const upcomingList = await this.model.loadUpcomingList();
+    const genres = await this.model.fetchGenres();
+    const popularList = await this.model.fetchPopularMovies();
+    const upcomingList = await this.model.fetchUpcomingMovies();
 
-    this.banerView.renderBanerEl(upcomingList[0]);
-    banerView.renderSliderItems(upcomingList);
+    this.bannerView.renderBannerEl(upcomingList[0]);
+    bannerView.renderSliderItems(upcomingList);
 
-    this.banerView.sliderItemsListner(async (id) => {
-      const movieData = await this.model.loadMovieData(id);
-      this.banerView.renderBanerEl(movieData);
+    this.bannerView.sliderItemsListner(async (id) => {
+      const movieData = await this.model.fetchMovieData(id);
+      this.bannerView.renderBannerEl(movieData);
     });
 
     this.genreView.render(genres);
@@ -47,7 +47,7 @@ class Controller {
     this.listView.renderList(popularList);
     this.genreView.genreListener(async (genreId) => {
       this.pageNum = 1;
-      const moviesByGenre = await this.model.loadMoviesByGenre(
+      const moviesByGenre = await this.model.fetchMoviesByGenre(
         genreId,
         this.pageNum
       );
@@ -58,7 +58,7 @@ class Controller {
 
     this.genresResultView.btnListener(async () => {
       let genreId = genreView.getGenreId();
-      const moviesByGenre = await this.model.loadMoviesByGenre(
+      const moviesByGenre = await this.model.fetchMoviesByGenre(
         genreId,
         this.pageNum
       );
@@ -67,13 +67,13 @@ class Controller {
     });
 
     this.heroView.heroItemListener(async (id) => {
-      const movieData = await this.model.loadMovieData(id);
-      const crew = await this.model.loadCrew(id);
+      const movieData = await this.model.fetchMovieData(id);
+      const crew = await this.model.fetchMovieCrew(id);
       this.heroView.renderHero(movieData, crew);
     });
 
     this.searchView.inputListener(async (movieName) => {
-      const searchData = await this.model.searchMovie(`${movieName}`);
+      const searchData = await this.model.searchMoviesByQuery(`${movieName}`);
       this.searchView.renderItems(searchData);
     });
     this.searchView.exitListener();
@@ -91,7 +91,7 @@ const controller = new Controller(
   listView,
   genresResultView,
   heroView,
-  banerView,
+  bannerView,
   searchView
 );
 controller.init();

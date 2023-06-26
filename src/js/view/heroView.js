@@ -3,7 +3,7 @@ import View from "./View";
 class HeroView extends View {
   parentEl = document.querySelector(".hero");
   container = document.querySelector(".block");
-  banerEl = document.querySelector(".baner");
+  bannerEl = document.querySelector(".banner");
   searchBox = document.querySelector(".search");
   exitIcon = document.querySelector(".search__icon");
 
@@ -25,17 +25,14 @@ class HeroView extends View {
       <div class="hero__details">
         <span class="hero__year">${movie.release_date.split("-")[0]}</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="ionicon-star" viewBox="0 0 512 512"><path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="64"/></svg>
-        
         <span class="hero__vote">${movie.vote_average.toFixed(1)}</span>
       </div>
       <p class="hero__genres">${genres}</p>
-
       <p class="hero__overview">${movie.overview}</p>
       <p class="hero__sm-header">Cast</p>
       <p class="hero__bottom-paragraph">${actors}</p>
       <p class="hero__sm-header">Director</p>
       <p class="hero__bottom-paragraph">${director}</p>
-
     </div>`;
   }
 
@@ -62,7 +59,7 @@ class HeroView extends View {
   renderHero(movie, crew) {
     this.removeHidden();
     this.parentEl.innerHTML = "";
-    this.banerEl.classList.add("hidden");
+    this.bannerEl.classList.add("hidden");
     this.renderBgImage(movie);
     this.parentEl.insertAdjacentHTML(
       "afterbegin",

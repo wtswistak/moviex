@@ -2,21 +2,24 @@ import View from "./View";
 
 class GenresResultView extends View {
   loadBtn = document.querySelector(".genres-results__load-btn");
-  itemClass = "genres-results__item";
+  item = "genres-results__item";
   itemsBox = document.querySelector(".genres-results__box");
-  banerEl = document.querySelector(".baner");
+  banerEl = document.querySelector(".banner");
   heroEl = document.querySelector(".hero");
 
   renderItems(movies) {
-    this.banerEl.classList.add("hidden");
-    this.heroEl.classList.add("hidden");
-
+    this.hideElements();
     movies.map((movie) =>
       this.itemsBox.insertAdjacentHTML(
         "beforeend",
-        this.renderItem(this.itemClass, movie)
+        this.renderItem(this.item, movie)
       )
     );
+  }
+
+  hideElements() {
+    this.banerEl.classList.add("hidden");
+    this.heroEl.classList.add("hidden");
   }
 
   btnListener(callback) {
