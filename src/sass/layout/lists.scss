@@ -48,10 +48,20 @@
   &__bottom-box {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+  }
+  &__icon-rate-box {
+    display: flex;
+    align-items: center;
   }
   &__rate {
     font-size: 1.6rem;
     color: #999999;
+  }
+  &__year {
+    @include yearSpanStyle();
+    margin-right: 0;
+    font-size: 1.3rem;
   }
   @include breakpoint(desktop) {
     --items-per-screen: 6;

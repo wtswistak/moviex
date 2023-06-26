@@ -13,7 +13,7 @@ class BannerView extends View {
   createBannerEl(movie) {
     return `<p class="banner__title animated">${movie.title}</p>
     <div class="banner__details animated">
-      <span class="hero__year animated" >${movie.release_date}</span>
+      <span class="banner__year animated" >${movie.release_date}</span>
     </div>
     <p class="banner__overview animated">${movie.overview}</p>`;
   }

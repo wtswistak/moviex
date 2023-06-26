@@ -1,5 +1,6 @@
 import { API_URL } from "./config";
 import { getJSON } from "./helper";
+const moment = require("moment");
 
 class Model {
   async fetchGenres() {
@@ -53,12 +54,13 @@ class Model {
   }
   async fetchUpcomingMovies() {
     try {
+      const currentDate = moment().format("YYYY-MM-DD");
+      const endDate = moment(currentDate).add(3, "weeks").format("YYYY-MM-DD");
+
       const data = await getJSON(
-        `${API_URL}movie/upcoming?language=en-US&page=1`
+        `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&primary_release_date.gte=${currentDate}&release_date.lte=${endDate}`
       );
-      return data.results.filter(
-        (item) => new Date(item.release_date) > new Date().getTime()
-      );
+      return data.results.slice(0, 6);
     } catch (err) {
       console.log(err);
       throw err;

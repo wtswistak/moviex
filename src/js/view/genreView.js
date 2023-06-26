@@ -47,7 +47,8 @@ class GenreView {
         this.headerName.innerHTML = `${genreName} movies`;
 
         this.genresContainer.classList.remove("show");
-        this.toggleBtns();
+
+        if (window.innerWidth < 880) this.toggleBtns();
 
         callback(targetId);
       })

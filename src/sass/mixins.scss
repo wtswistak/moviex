@@ -1,3 +1,11 @@
+@mixin yearSpanStyle() {
+  margin-right: 2rem;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  background-color: #3b3846;
+  border-radius: var(--border-radius-btn);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
