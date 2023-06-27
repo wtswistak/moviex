@@ -1,7 +1,8 @@
 .lists {
+  display: none;
   justify-content: center;
   overflow: hidden;
-  animation: 1.8s fadeIn ease-in-out;
+  animation: 0.4s fadeIn ease-in-out;
 
   &__section-name {
     margin-bottom: 1.6rem;

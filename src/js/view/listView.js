@@ -1,6 +1,7 @@
 import view from "./View";
 
 class ListView extends view {
+  listsBox = document.querySelector(".lists");
   list = document.querySelector(".lists__list");
   prevButton = document.querySelector(".btn-prev");
   nextButton = document.querySelector(".btn-next");

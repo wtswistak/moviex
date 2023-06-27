@@ -45,6 +45,7 @@ class Controller {
     this.genreView.hideBtnListener();
 
     this.listView.renderList(popularList);
+    this.listView.listsBox.style.display = "block";
     this.genreView.genreListener(async (genreId) => {
       this.pageNum = 1;
       const moviesByGenre = await this.model.fetchMoviesByGenre(
