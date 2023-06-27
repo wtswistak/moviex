@@ -1,6 +1,7 @@
 .lists {
   justify-content: center;
   overflow: hidden;
+  animation: 1.8s fadeIn ease-in-out;
 
   &__section-name {
     margin-bottom: 1.6rem;
@@ -31,7 +32,7 @@
   &__btn {
     display: flex;
     position: absolute;
-    top: 50%;
+    top: 45%;
     padding: 0.7rem;
     margin: 0.5rem;
     z-index: 10;
