@@ -25,6 +25,11 @@ export default class View {
     <div class="dot"></div>
   </div>`;
   }
+  deleteLoadingDots() {
+    const loadingDots = document.querySelector(".loading-dots");
+    loadingDots.remove();
+  }
+
   getDirector(crew) {
     const director = crew.crew.find((item) => item.job === "Director").name;
     return director;

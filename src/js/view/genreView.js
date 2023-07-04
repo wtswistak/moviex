@@ -1,4 +1,6 @@
-class GenreView {
+import View from "./View";
+
+class GenreView extends View {
   genresBox = document.querySelector(".genres__list");
   headerName = document.querySelector(".genres-results__header");
   itemsBox = document.querySelector(".genres-results__box");
@@ -36,6 +38,11 @@ class GenreView {
 
     genresLinks.forEach((element) =>
       element.addEventListener("click", (e) => {
+        this.itemsBox.insertAdjacentHTML(
+          "beforebegin",
+          this.renderLoadingDots()
+        );
+
         this.listsBox.classList.add("hidden");
         this.activeCheck(e);
         this.parentEl.classList.remove("hidden");
@@ -49,7 +56,6 @@ class GenreView {
         this.genresContainer.classList.remove("show");
 
         if (window.innerWidth < 880) this.toggleBtns();
-
         callback(targetId);
       })
     );

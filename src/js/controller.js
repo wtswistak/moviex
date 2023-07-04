@@ -32,7 +32,7 @@ class Controller {
     const popularList = await this.model.fetchPopularMovies();
     const upcomingList = await this.model.fetchUpcomingMovies();
 
-    this.bannerView.renderBannerEl(upcomingList[0]);
+    this.bannerView.renderBannerEl(upcomingList.at(0));
     bannerView.renderSliderItems(upcomingList);
 
     this.bannerView.sliderItemsListner(async (id) => {
@@ -52,7 +52,7 @@ class Controller {
         genreId,
         this.pageNum
       );
-
+      this.genreView.deleteLoadingDots();
       this.genresResultView.renderItems(moviesByGenre);
       this.pageNum++;
     });
