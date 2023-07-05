@@ -21,7 +21,7 @@ class HeroView extends View {
       movie.poster_path
     }" alt="movie-poster"/>
     <div class="hero__movie-data">
-      <p class="hero__title">${movie.title}</p>
+      <h1 class="hero__title">${movie.title}</h1>
       <div class="hero__details">
         <span class="hero__year">${movie.release_date.split("-")[0]}</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="ionicon-star" viewBox="0 0 512 512"><path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="64"/></svg>

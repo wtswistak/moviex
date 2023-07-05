@@ -11,7 +11,9 @@ class BannerView extends View {
     );
   }
   createBannerEl(movie) {
-    return `<p class="banner__title animated">${movie.title}</p>
+    return `
+    <h2 class="banner__heading animated">Upcoming!</h2>
+    <h1 class="banner__title animated">${movie.title}</h1>
     <div class="banner__details animated">
       <span class="banner__year animated" >${movie.release_date}</span>
     </div>
