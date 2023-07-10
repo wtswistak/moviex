@@ -7,6 +7,8 @@ class GenresResultView extends View {
   banerEl = document.querySelector(".banner");
   heroEl = document.querySelector(".hero");
 
+  itemsBox = document.querySelector(".genres-results__box");
+
   renderItems(movies) {
     this.hideElements();
     movies.map((movie) =>
@@ -24,6 +26,7 @@ class GenresResultView extends View {
 
   btnListener(callback) {
     this.loadBtn.addEventListener("click", () => {
+      this.itemsBox.insertAdjacentHTML("afterend", this.renderLoadingDots());
       callback();
     });
   }

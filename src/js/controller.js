@@ -65,12 +65,18 @@ class Controller {
       );
       this.pageNum++;
       this.genresResultView.renderItems(moviesByGenre);
+      this.genreView.deleteLoadingDots();
     });
 
-    this.heroView.heroItemListener(async (id) => {
+    this.heroView.handleMoviesLinks(async (id) => {
       const movieData = await this.model.fetchMovieData(id);
       const crew = await this.model.fetchMovieCrew(id);
+      const similarMovies = await this.model.fetchSimilarMovies(id);
+
       this.heroView.renderHero(movieData, crew);
+      this.genreView.parentEl.classList.add("hidden");
+      this.listView.renderList(similarMovies);
+      this.listView.listTitle.innerHTML = "Similar movies";
     });
 
     this.searchView.inputListener(async (movieName) => {

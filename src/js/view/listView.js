@@ -5,12 +5,16 @@ class ListView extends view {
   list = document.querySelector(".lists__list");
   prevButton = document.querySelector(".btn-prev");
   nextButton = document.querySelector(".btn-next");
+  listTitle = document.querySelector(".lists__section-name");
 
   className = "lists__item";
   translateXValue = 0;
   tempXValue = 0;
 
   renderList(movies) {
+    this.listsBox.classList.remove("hidden");
+    this.translateXValue = 0;
+    this.list.innerHTML = "";
     movies.map((movie) =>
       this.list.insertAdjacentHTML(
         "beforeend",

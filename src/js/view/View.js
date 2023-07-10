@@ -12,7 +12,7 @@ export default class View {
     <div class="lists__bottom-box">
      <div class="lists__icon-rate-box">
         <svg xmlns="http://www.w3.org/2000/svg" class="ionicon-star" viewBox="0 0 512 512"><path d="M480 208H308L256 48l-52 160H32l140 96-54 160 138-100 138 100-54-160z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="64"/></svg>
-        <span class="lists__rate">${movie.vote_average} </span>
+        <span class="lists__rate">${movie.vote_average.toFixed(1)} </span>
      </div>
       <span class="lists__year">${movie.release_date.split("-")[0]}</span>
     </div>

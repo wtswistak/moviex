@@ -77,5 +77,16 @@ class Model {
       throw err;
     }
   }
+  async fetchSimilarMovies(id) {
+    try {
+      const data = await getJSON(
+        `${API_URL}movie/${id}/recommendations?sort_by=popularity.desc`
+      );
+      return data.results;
+    } catch (err) {
+      console.log(err);
+      throw err;
+    }
+  }
 }
 export default new Model();

@@ -36,12 +36,12 @@ class HeroView extends View {
     </div>`;
   }
 
-  heroItemListener(callback) {
+  handleMoviesLinks(callback) {
     this.container.addEventListener("click", (e) => {
       const movieLink = e.target.closest(".movie-link");
       if (movieLink) {
-        this.searchBox.classList.add("opacity-none");
-        this.exitIcon.classList.add("opacity-none");
+        this.searchBox?.classList.add("opacity-none");
+        this.exitIcon?.classList.add("opacity-none");
 
         const targetId = parseInt(movieLink.dataset.movieId);
         callback(targetId);

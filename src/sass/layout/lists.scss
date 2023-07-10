@@ -1,5 +1,6 @@
 .lists {
   display: none;
+  position: relative;
   justify-content: center;
   overflow: hidden;
   animation: 0.4s fadeIn ease-in-out;
@@ -10,7 +11,6 @@
     font-weight: 500;
   }
   &__list {
-    position: relative;
     display: flex;
     width: 100%;
     margin-bottom: 8rem;
