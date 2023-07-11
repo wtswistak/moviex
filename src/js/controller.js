@@ -57,7 +57,7 @@ class Controller {
       this.pageNum++;
     });
 
-    this.genresResultView.btnListener(async () => {
+    this.genresResultView.loadBtnHandle(async () => {
       let genreId = genreView.getGenreId();
       const moviesByGenre = await this.model.fetchMoviesByGenre(
         genreId,

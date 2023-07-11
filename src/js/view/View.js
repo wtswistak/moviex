@@ -1,11 +1,14 @@
 export default class View {
   renderItem(className, movie) {
+    let imgSrc = "";
+    movie.poster_path === null
+      ? (imgSrc = `https://i.postimg.cc/V6d4C7nc/image-error.jpg`)
+      : (imgSrc = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`);
+
     return `<div class="${className}">
     <a class="movie-link" data-movie-id="${movie.id}" href="#${movie.title}">
       <figure>
-        <img class="lists__poster" src="https://image.tmdb.org/t/p/w500/${
-          movie.poster_path
-        }" alt="movie-poster" />
+        <img class="lists__poster" src=${imgSrc} alt="movie-poster" />
         <figcaption class="lists__title">${movie.title}</figcaption>
       </figure>
     </a>

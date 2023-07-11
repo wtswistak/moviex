@@ -12,6 +12,7 @@ class ListView extends view {
   tempXValue = 0;
 
   renderList(movies) {
+    if (movies.length < 10) return;
     this.listsBox.classList.remove("hidden");
     this.translateXValue = 0;
     this.list.innerHTML = "";

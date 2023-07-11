@@ -79,9 +79,15 @@ class Model {
   }
   async fetchSimilarMovies(id) {
     try {
-      const data = await getJSON(
+      let data = await getJSON(
         `${API_URL}movie/${id}/recommendations?sort_by=popularity.desc`
       );
+      if (data.results.length < 16)
+        data = await getJSON(
+          `
+          ${API_URL}movie/${id}/similar?sort_by=popularity.desc`
+        );
+
       return data.results;
     } catch (err) {
       console.log(err);

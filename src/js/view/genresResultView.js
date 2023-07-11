@@ -24,9 +24,9 @@ class GenresResultView extends View {
     this.heroEl.classList.add("hidden");
   }
 
-  btnListener(callback) {
+  loadBtnHandle(callback) {
     this.loadBtn.addEventListener("click", () => {
-      this.itemsBox.insertAdjacentHTML("afterend", this.renderLoadingDots());
+      this.loadBtn.insertAdjacentHTML("afterend", this.renderLoadingDots());
       callback();
     });
   }

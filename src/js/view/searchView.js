@@ -11,8 +11,13 @@ class SearchView extends View {
   exitInputIcon = document.querySelector(".header__icon-exit");
 
   createItem(movie) {
+    let imgSrc = "";
+    movie.poster_path === null
+      ? (imgSrc = "https://i.postimg.cc/MKHNR9Zp/image-error.jpg")
+      : (imgSrc = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`);
+
     return `<a class="movie-link search__item" data-movie-id=${movie.id} href="#${movie.title}">
-    <img class="search__poster" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}">
+    <img class="search__poster" src=${imgSrc} alt="${movie.title} poster">
     <p class="search__movie-title">${movie.title} </p>
     </a>
     `;
