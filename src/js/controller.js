@@ -69,6 +69,11 @@ class Controller {
     });
 
     this.heroView.handleMoviesLinks(async (id) => {
+      this.heroView.loadingScreen.insertAdjacentHTML(
+        "afterbegin",
+        this.heroView.renderLoadingDots()
+      );
+
       const movieData = await this.model.fetchMovieData(id);
       const crew = await this.model.fetchMovieCrew(id);
       const similarMovies = await this.model.fetchSimilarMovies(id);
@@ -77,6 +82,9 @@ class Controller {
       this.genreView.parentEl.classList.add("hidden");
       this.listView.renderList(similarMovies);
       this.listView.listTitle.innerHTML = "Similar movies";
+      this.heroView.deleteLoadingDots();
+      this.heroView.loadingScreen.classList.add("hidden");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
     this.searchView.inputListener(async (movieName) => {

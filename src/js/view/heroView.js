@@ -6,9 +6,10 @@ class HeroView extends View {
   bannerEl = document.querySelector(".banner");
   searchBox = document.querySelector(".search");
   exitIcon = document.querySelector(".search__icon");
+  loadingScreen = document.querySelector(".loading-screen");
 
-  removeHidden() {
-    this.parentEl.classList.remove("hidden");
+  removeHidden(el) {
+    el.classList.remove("hidden");
   }
 
   createHeroElement(movie, crew) {
@@ -40,12 +41,12 @@ class HeroView extends View {
     this.container.addEventListener("click", (e) => {
       const movieLink = e.target.closest(".movie-link");
       if (movieLink) {
+        this.removeHidden(this.loadingScreen);
         this.searchBox?.classList.add("opacity-none");
         this.exitIcon?.classList.add("opacity-none");
 
         const targetId = parseInt(movieLink.dataset.movieId);
         callback(targetId);
-        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     });
   }
@@ -57,7 +58,7 @@ class HeroView extends View {
   }
 
   renderHero(movie, crew) {
-    this.removeHidden();
+    this.removeHidden(this.parentEl);
     this.parentEl.innerHTML = "";
     this.bannerEl.classList.add("hidden");
     this.renderBgImage(movie);
