@@ -34,7 +34,7 @@ export default class View {
   }
 
   getDirector(crew) {
-    const director = crew.crew.find((item) => item.job === "Director").name;
+    const director = crew.crew.find((item) => item.job === "Director")?.name;
     return director;
   }
   getActors(crew) {
